@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="th">
-<head>
+<html lang="th"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arplane Language Learn</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;700&amp;display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Noto Sans Thai', sans-serif;
+            font-family: 'Google Sans', 'Google Sans';
             background-color: #f4f4f9;
             margin: 0;
             padding: 0;
@@ -28,6 +26,7 @@
         }
 
         .logout-button {
+            font-family: 'Google Sans', 'Google Sans';
             background-color: #ff4757;
             border: none;
             color: white;
@@ -57,6 +56,7 @@
         }
 
         button {
+            font-family: 'Google Sans', 'Google Sans';
             background-color: #6c63ff;
             border: none;
             color: white;
@@ -71,6 +71,7 @@
         }
 
         .select-container {
+            font-family: 'Google Sans', 'Google Sans';
             display: flex;
             align-items: center;
             justify-content: center;
@@ -78,6 +79,7 @@
         }
 
         select {
+            font-family: 'Google Sans', 'Google Sans';
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
@@ -155,28 +157,28 @@
 <body>
     <header>
         <h1>Arplane Language Learn</h1>
-        <div id="userDisplay"></div>
-        <button class="logout-button" onclick="logout()" style="display: none;">ลงชื่อออก</button> <!-- ปุ่มลงชื่อออกใน header -->
+        <div id="userDisplay">สวัสดี สไมล์</div>
+        <button class="logout-button" onclick="logout()" style="display: block;">ลงชื่อออก</button> <!-- ปุ่มลงชื่อออกใน header -->
     </header>
     
-    <div id="loginContainer">
+    <div id="loginContainer" style="display: none;">
         <input type="text" id="username" placeholder="ชื่อผู้ใช้">
         <input type="password" id="password" placeholder="รหัสผ่าน">
         <button onclick="login()">ลงชื่อเข้าใช้</button>
     </div>
     
-    <div id="content">
+    <div id="content" style="display: block;">
         <div class="select-container">
             <label for="sheetSelect">เลือกชีต:</label>
-            <select id="sheetSelect"></select>
+            <select id="sheetSelect"><option value="HSK1 ถามจีนพินอินตอบแปล">HSK1 ถามจีนพินอินตอบแปล</option><option value="HSK1 ถามจีนตอบแปล">HSK1 ถามจีนตอบแปล</option><option value="HSK1 ถามแปลตอบจีน">HSK1 ถามแปลตอบจีน</option><option value="YCT3">YCT3</option></select>
             <button onclick="getRandomWord()">สุ่มคำศัพท์</button>
         </div>
         <div class="word-container">
-            <p id="word"></p>
-            <p id="pinyin"></p>
-            <div class="options" id="optionsContainer"></div>
+            <p id="word">读书</p>
+            <p id="pinyin">dú//shū</p>
+            <div class="options" id="optionsContainer"><button>สอบ</button><button>กำลัง</button><button>ถึง</button><button>อ่านหนังสือ</button><button>บนพื้น</button><button>น้องชาย</button><button>เครื่องโทรทัศน์</button><button>แก้วน้ำ</button><button>(จำนวน / ราคา) เท่าไหร่</button><button>ทิศตะวันออก</button></div>
         </div>
-        <p id="score">คะแนน: 0</p>
+        <p id="score">คะแนน: 2507</p>
         <iframe id="scoreIframe" style="display: none;"></iframe> <!-- Hidden iframe for sending scores -->
     </div>
 
@@ -274,7 +276,7 @@ async function getRandomWord() {
     const wrongAnswers = words.map(row => row[2]).filter(answer => answer !== correctAnswer);
     
     // จำกัดจำนวนตัวเลือกหลอก (เช่น 3 ตัวเลือก)
-    const limitedWrongAnswers = wrongAnswers.sort(() => 0.5 - Math.random()).slice(0, 9);
+    const limitedWrongAnswers = wrongAnswers.sort(() => 0.5 - Math.random()).slice(0, 3);
 
     const options = [...limitedWrongAnswers, correctAnswer];
     options.sort(() => Math.random() - 0.5); // สุ่มตัวเลือก
@@ -345,5 +347,5 @@ function checkAnswer(selectedAnswer, correctAnswer) {
         // เรียกใช้งานฟังก์ชันเมื่อหน้าเว็บโหลดเสร็จ
         window.onload = onPageLoad;
     </script>
-</body>
-</html>
+
+</body></html>
