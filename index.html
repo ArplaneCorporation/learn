@@ -307,6 +307,7 @@
             align-items: center;
         }
         .profile-pic {
+            display: none;
             width: 50px; /* กำหนดขนาดของภาพโปรไฟล์ */
             height: 50px; /* กำหนดขนาดของภาพโปรไฟล์ */
             border-radius: 50%; /* ทำให้เป็นวงกลม */
@@ -327,11 +328,11 @@
         <h1>Arplane Language Learn</h1>
         <div class="user-controls">
 <div class="profile-container">
-    <div class="profile-pic">
+    <div class="profile-pic" >
         <img id="profileImage" src="" onerror="this.onerror=null;this.src='https://th.bing.com/th/id/OIP.grSGav-be2MB16CTac864wHaHa?w=190&h=190&c=7&r=0&o=5&pid=1.7';">
     </div>
     <div id="userDisplay"></div>
-            <button class="logout-button" onclick="logout()" style="display: block;">ลงชื่อออก</button>
+            <button class="logout-button" onclick="logout()" style="display: none;">ลงชื่อออก</button>
         </div>
     </header>
 
@@ -410,6 +411,14 @@
                     document.getElementById('loginContainer').style.display = 'none';
                     document.getElementById('content').style.display = 'block';
                     document.getElementById('score').textContent = `คะแนน: ${score}`
+                    document.querySelector('.profile-pic').style.display = 'block'
+    // ตรวจสอบว่ามีลิ้งค์ในคอลัมน์ E หรือไม่
+    if (profileLink) {
+        document.getElementById("profileImage").src = profileLink;
+    } else {
+        document.getElementById("profileImage").src = 'https://th.bing.com/th/id/OIP.grSGav-be2MB16CTac864wHaHa?w=190&h=190&c=7&r=0&o=5&pid=1.7';
+    }
+    
                     await getSheetNames();
 
                     localStorage.setItem('currentUser', JSON.stringify({
@@ -432,6 +441,7 @@
             document.querySelector('.logout-button').style.display = 'none';
             document.getElementById('loginContainer').style.display = 'block';
             document.getElementById('content').style.display = 'none';
+                document.querySelector('.profile-pic').style.display = 'none'
 
             localStorage.removeItem('currentUser');
         }
@@ -503,18 +513,21 @@
                 currentUser = userData.username;
                 score = userData.score;
                 userRowIndex = userData.userRowIndex;
+                profileLink = userData.profileLink;
                 document.getElementById('userDisplay').textContent = userData.displayName;
                 document.querySelector('.logout-button').style.display = 'block';
                 document.getElementById('loginContainer').style.display = 'none';
                 document.getElementById('content').style.display = 'block';
-                document.getElementById('score').textContent = `คะแนน: ${score}`
+                document.getElementById('score').textContent = `คะแนน: ${score}`;
+                document.querySelector('.profile-pic').style.display = 'block'
+
                 getSheetNames();
 
     // ตรวจสอบว่ามีลิ้งค์ในคอลัมน์ E หรือไม่
     if (profileLink) {
         document.getElementById("profileImage").src = profileLink;
     } else {
-        document.getElementById("profileImage").src = 'https://th.bing.com/th/id/OIP.grSGav-be2MB16CTac864wHaHa?w=190&h=190&c=7&r=0&o=5&pid=1.7';
+        document.getElementById("profileImage").src = "https://th.bing.com/th/id/OIP.grSGav-be2MB16CTac864wHaHa?w=190&h=190&c=7&r=0&o=5&pid=1.7";
     }
     
             } else {
