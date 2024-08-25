@@ -342,7 +342,7 @@
         <button onclick="login()">ลงชื่อเข้าใช้</button>
     </div>
 
-    <div id="content" style="display: block;">
+    <div id="content" style="display: none;">
         <div class="select-container">
             <label for="sheetSelect">เลือกชีต:</label>
             <select id="sheetSelect"> <option value="" disabled selected>--กรุณาเลือก--</option></select>
@@ -370,6 +370,13 @@
     </div>
 
     <script>
+        function removeOptions(selectElement) {
+   var i, L = selectElement.options.length - 1;
+   for(i = L; i >= 0; i--) {
+      selectElement.remove(i);
+   }
+}
+
         const API_KEY = 'AIzaSyDgxTWXvIUQND4C7gzapRW6KNqEaBPQ8Y0';
         const SHEET_ID = '1gpLXgbRkJdS-e3HmhojxiT0m4Of8x6nnpUChmNcN1Ss';
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbww82gNh7ni0_QAmLE_8IoR0ec3wcZWDBr_Vxbcb6pSCj9M0xC5X2CLinTYrGcrA_cD/exec';
@@ -441,9 +448,10 @@
             document.querySelector('.logout-button').style.display = 'none';
             document.getElementById('loginContainer').style.display = 'block';
             document.getElementById('content').style.display = 'none';
-                document.querySelector('.profile-pic').style.display = 'none'
-
+            document.querySelector('.profile-pic').style.display = 'none';
+            removeOptions(document.getElementById('sheetSelect'));
             localStorage.removeItem('currentUser');
+            location.reload()
         }
 
         async function getRandomWord() {
@@ -471,7 +479,7 @@
         function checkAnswer(selectedOption, correctOption) {
             if (selectedOption === correctOption) {
                 score ++;
-                showPopup('ถูกต้อง!', 'https://cdn.lordicon.com/lupuorrc.json');
+                // showPopup('ถูกต้อง!', 'https://cdn.lordicon.com/lupuorrc.json');
                 updateScore(score);
                 getRandomWord();
             } else {
