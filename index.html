@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="th"><head>
+<html lang="th">
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arplane Language Learn</title>
@@ -10,6 +12,7 @@
             background-color: #f4f4f9;
             margin: 0;
             padding: 0;
+            overflow-x: hidden; /* Prevent horizontal scroll caused by animations */
         }
 
         header {
@@ -19,6 +22,27 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            animation: fadeInDown 0.5s ease-out; /* Header fade-in animation */
+        }
+
+        .user-controls {
+            display: flex;
+            align-items: center;
+        }
+
+        #userDisplay {
+            margin-right: 15px; /* เพิ่มพื้นที่ระหว่างชื่อผู้ใช้และปุ่มลงชื่อออก */
+        }
+
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         h1 {
@@ -35,6 +59,57 @@
             cursor: pointer;
             border-radius: 5px;
             transition: background-color 0.3s;
+            animation: fadeIn 1s ease-out; /* Button fade-in animation */
+        }
+
+        .logout-button:hover {
+            background-color: #ff6b81;
+        }
+
+                body {
+            font-family: 'Google Sans', 'Google Sans';
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Prevent horizontal scroll caused by animations */
+        }
+
+        header {
+            background-color: #6c63ff;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation: fadeInDown 0.5s ease-out; /* Header fade-in animation */
+        }
+
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .logout-button {
+            font-family: 'Google Sans', 'Google Sans';
+            background-color: #ff4757;
+            border: none;
+            color: white;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            animation: fadeIn 1s ease-out; /* Button fade-in animation */
         }
 
         .logout-button:hover {
@@ -46,14 +121,42 @@
             flex-direction: column;
             align-items: center;
             margin: 20px;
+            animation: fadeIn 1s ease-out; /* Container fade-in animation */
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
         }
 
         input {
+            font-family: 'Google Sans', 'Google Sans';
             padding: 10px;
             margin: 5px;
             border: 1px solid #ccc;
             border-radius: 5px;
             width: 250px;
+            transition: border-color 0.3s;
+            animation: zoomIn 0.5s ease-out; /* Input zoom-in animation */
+        }
+
+        input:focus {
+            border-color: #6c63ff;
+        }
+
+        @keyframes zoomIn {
+            0% {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
 
         button {
@@ -64,11 +167,24 @@
             padding: 10px 15px;
             cursor: pointer;
             border-radius: 5px;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
+            animation: slideIn 0.5s ease-out; /* Button slide-in animation */
         }
 
         button:hover {
             background-color: #5a54d0;
+            transform: translateY(-3px); /* Button lift on hover */
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
 
         .select-container {
@@ -77,26 +193,41 @@
             align-items: center;
             justify-content: center;
             margin: 20px;
+            animation: fadeIn 1s ease-out; /* Container fade-in animation */
         }
 
         select {
             font-family: 'Google Sans', 'Google Sans';
+            text-align: center;
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 16px;
-            margin-right: 10px; /* เว้นระยะระหว่าง dropdown กับปุ่ม */
+            margin-right: 10px;
             background-color: #fff;
             transition: border-color 0.3s;
+            animation: zoomIn 0.5s ease-out; /* Select zoom-in animation */
         }
 
         select:hover {
-            border-color: #6c63ff; /* เปลี่ยนสีขอบเมื่อ hover */
+            border-color: #6c63ff;
         }
 
         .word-container {
             text-align: center;
             margin: 20px;
+            animation: fadeInUp 0.5s ease-out; /* Container fade-in up animation */
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .word-container p {
@@ -110,12 +241,25 @@
 
         .options button {
             margin: 5px;
+            animation: fadeInLeft 0.5s ease-out; /* Button fade-in left animation */
+        }
+
+        @keyframes fadeInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         #score {
             text-align: center;
             font-size: 20px;
             margin-top: 20px;
+            animation: fadeInUp 0.5s ease-out; /* Score fade-in up animation */
         }
 
         #popup {
@@ -128,6 +272,8 @@
             background-color: rgba(0, 0, 0, 0.7);
             justify-content: center;
             align-items: center;
+            flex-direction: column;
+            animation: fadeIn 0.5s ease-out; /* Popup fade-in animation */
         }
 
         #popupContent {
@@ -135,6 +281,7 @@
             padding: 20px;
             border-radius: 8px;
             text-align: center;
+            animation: zoomIn 0.5s ease-out; /* Popup content zoom-in animation */
         }
 
         #popupContent button {
@@ -144,6 +291,7 @@
             padding: 10px 15px;
             cursor: pointer;
             border-radius: 5px;
+            transition: background-color 0.3s;
         }
 
         #popupContent button:hover {
@@ -151,27 +299,52 @@
         }
 
         #content {
-            display: none; /* Initially hide content */
+            display: none;
+            animation: fadeIn 1s ease-out; /* Content fade-in animation */
+        }
+        .profile-container {
+            display: flex;
+            align-items: center;
+        }
+        .profile-pic {
+            width: 50px; /* กำหนดขนาดของภาพโปรไฟล์ */
+            height: 50px; /* กำหนดขนาดของภาพโปรไฟล์ */
+            border-radius: 50%; /* ทำให้เป็นวงกลม */
+            overflow: hidden; /* ซ่อนส่วนที่เกิน */
+            background-color: #f0f0f0; /* สีพื้นหลัง */
+            margin-right: 10px; /* เว้นระยะระหว่างรูปโปรไฟล์และชื่อ */
+        }
+        .profile-pic img {
+            width: 100%; /* ปรับขนาดภาพให้พอดีกับกรอบ */
+            height: 100%; /* ปรับขนาดภาพให้พอดีกับกรอบ */
+            object-fit: cover; /* ปรับให้ภาพเต็มกรอบ */
         }
     </style>
 </head>
+
 <body>
     <header>
         <h1>Arplane Language Learn</h1>
-        <div id="userDisplay"></div>
-        <button class="logout-button" onclick="logout()" style="display: block;">ลงชื่อออก</button> <!-- ปุ่มลงชื่อออกใน header -->
+        <div class="user-controls">
+<div class="profile-container">
+    <div class="profile-pic">
+        <img id="profileImage" src="" onerror="this.onerror=null;this.src='https://th.bing.com/th/id/OIP.grSGav-be2MB16CTac864wHaHa?w=190&h=190&c=7&r=0&o=5&pid=1.7';">
+    </div>
+    <div id="userDisplay"></div>
+            <button class="logout-button" onclick="logout()" style="display: block;">ลงชื่อออก</button>
+        </div>
     </header>
-    
+
     <div id="loginContainer" style="display: none;">
         <input type="text" id="username" placeholder="ชื่อผู้ใช้">
         <input type="password" id="password" placeholder="รหัสผ่าน">
         <button onclick="login()">ลงชื่อเข้าใช้</button>
     </div>
-    
+
     <div id="content" style="display: block;">
         <div class="select-container">
             <label for="sheetSelect">เลือกชีต:</label>
-            <select id="sheetSelect"><option value="HSK1 ถามจีนพินอินตอบแปล">HSK1 ถามจีนพินอินตอบแปล</option><option value="HSK1 ถามจีนตอบแปล">HSK1 ถามจีนตอบแปล</option><option value="HSK1 ถามแปลตอบจีน">HSK1 ถามแปลตอบจีน</option><option value="YCT3">YCT3</option></select>
+            <select id="sheetSelect"> <option value="" disabled selected>--กรุณาเลือก--</option></select>
             <button onclick="getRandomWord()">สุ่มคำศัพท์</button>
         </div>
         <div class="word-container">
@@ -180,12 +353,16 @@
             <div class="options" id="optionsContainer"></div>
         </div>
         <p id="score">คะแนน: 0</p>
-        <iframe id="scoreIframe" style="display: none;"></iframe> <!-- Hidden iframe for sending scores -->
+        <iframe id="scoreIframe" style="display: none;"></iframe>
     </div>
 
     <!-- Popup for alerts -->
     <div id="popup">
         <div id="popupContent">
+            <script src="https://cdn.lordicon.com/lordicon.js"></script>
+<lord-icon id="popupIcon" src="https://cdn.lordicon.com/oqdmuxru.json" trigger="loop" style="width: 150px; height: 150px;">
+</lord-icon>
+
             <p id="popupMessage"></p>
             <button onclick="closePopup()">ปิด</button>
         </div>
@@ -199,7 +376,6 @@
         let score = 0;
         let userRowIndex = null;
 
-        // ฟังก์ชันดึงชื่อชีตทั้งหมด
         async function getSheetNames() {
             const response = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}?key=${API_KEY}`);
             const data = await response.json();
@@ -213,43 +389,42 @@
             });
         }
 
-        // ฟังก์ชันลงชื่อเข้าใช้
         async function login() {
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
             if (username && password) {
-                // ตรวจสอบผู้ใช้ใน Google Sheets
                 const response = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Users?key=${API_KEY}`);
                 const data = await response.json();
                 const users = data.values || [];
                 const user = users.find(row => row[0] === username && row[1] === password);
                 const score = user[2];
+                const profileLink = user[4];
+
 
                 if (user) {
                     currentUser = username;
-                    userRowIndex = users.indexOf(user) + 1; // บรรทัดของผู้ใช้ในชีต
-                    document.getElementById('userDisplay').textContent = `สวัสดี ${user[3]}`; // แสดงชื่อในชีตคอลัมน์ D
+                    userRowIndex = users.indexOf(user) + 1;
+                    document.getElementById('userDisplay').textContent = `${user[3]}`;
                     document.querySelector('.logout-button').style.display = 'block';
                     document.getElementById('loginContainer').style.display = 'none';
                     document.getElementById('content').style.display = 'block';
                     document.getElementById('score').textContent = `คะแนน: ${score}`
                     await getSheetNames();
 
-                    // บันทึกข้อมูลการเข้าสู่ระบบใน localStorage
                     localStorage.setItem('currentUser', JSON.stringify({
                         username: currentUser,
                         score: score,
                         userRowIndex: userRowIndex,
-                        displayName: user[3]
+                        displayName: user[3],
+                        profileLink: user[4]
                     }));
                 } else {
-                    showPopup('ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง');
+                    showPopup('ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง', 'https://cdn.lordicon.com/nqtddedc.json');
                 }
             }
         }
 
-        // ฟังก์ชันลงชื่อออก
         function logout() {
             currentUser = null;
             userRowIndex = null;
@@ -258,95 +433,95 @@
             document.getElementById('loginContainer').style.display = 'block';
             document.getElementById('content').style.display = 'none';
 
-            // ลบข้อมูลการเข้าสู่ระบบจาก localStorage
             localStorage.removeItem('currentUser');
         }
 
-        // ฟังก์ชันสุ่มคำศัพท์
-async function getRandomWord() {
-    const sheetName = document.getElementById('sheetSelect').value;
-    const response = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${sheetName}?key=${API_KEY}`);
-    const data = await response.json();
-    const words = data.values || [];
-    const randomWord = words[Math.floor(Math.random() * words.length)];
-    const word = randomWord[0];
-    const pinyin = randomWord[1];
-    const correctAnswer = randomWord[2];
-
-    // ดึงตัวเลือกหลอกจากคอลัมน์ C
-    const wrongAnswers = words.map(row => row[2]).filter(answer => answer !== correctAnswer);
-    
-    // จำกัดจำนวนตัวเลือกหลอก (เช่น 3 ตัวเลือก)
-    const limitedWrongAnswers = wrongAnswers.sort(() => 0.5 - Math.random()).slice(0, 3);
-
-    const options = [...limitedWrongAnswers, correctAnswer];
-    options.sort(() => Math.random() - 0.5); // สุ่มตัวเลือก
-
-    document.getElementById('word').textContent = word;
-    document.getElementById('pinyin').textContent = pinyin;
-
-    const optionsContainer = document.getElementById('optionsContainer');
-    optionsContainer.innerHTML = ''; // เคลียร์ตัวเลือกก่อน
-    options.forEach(option => {
-        const button = document.createElement('button');
-        button.textContent = option;
-        button.onclick = () => checkAnswer(option, correctAnswer);
-        optionsContainer.appendChild(button);
-    });
-}
-
-
-// ฟังก์ชันตรวจสอบคำตอบ
-function checkAnswer(selectedAnswer, correctAnswer) {
-    if (selectedAnswer === correctAnswer) {
-        score++; // เพิ่มคะแนนเมื่อถูกต้อง
-        getRandomWord();
-    } else {
-        showPopup(`ผิด! คำตอบที่ถูกต้องคือ ${correctAnswer}`);
-    }
-    document.getElementById('score').textContent = `คะแนน: ${score}`;
-
-    // อัปเดตคะแนนใน Google Sheets
-    const iframe = document.getElementById('scoreIframe');
-    iframe.src = `${SCRIPT_URL}?row=${userRowIndex}&score=${score}`;
-
-    // อัปเดตคะแนนใน localStorage
-    const storedUser = JSON.parse(localStorage.getItem('currentUser'));
-    storedUser.score = score;
-    localStorage.setItem('currentUser', JSON.stringify(storedUser));
-}
-
-
-        // ฟังก์ชันแสดง Popup
-        function showPopup(message) {
-            document.getElementById('popupMessage').textContent = message;
-            document.getElementById('popup').style.display = 'flex';
-        }
-
-        // ฟังก์ชันปิด Popup
-        function closePopup() {
-            document.getElementById('popup').style.display = 'none';
-        }
-
-        // ฟังก์ชันเรียกใช้เมื่อโหลดหน้าเว็บ
-        function onPageLoad() {
-            const storedUser = localStorage.getItem('currentUser');
-            if (storedUser) {
-                const user = JSON.parse(storedUser);
-                currentUser = user.username;
-                score = user.score;
-                userRowIndex = user.userRowIndex;
-                document.getElementById('userDisplay').textContent = `สวัสดี ${user.displayName}`;
-                document.querySelector('.logout-button').style.display = 'block';
-                document.getElementById('loginContainer').style.display = 'none';
-                document.getElementById('content').style.display = 'block';
-                document.getElementById('score').textContent = `คะแนน: ${score}`;
-                getSheetNames();
+        async function getRandomWord() {
+            const sheetName = sheetSelect.value;
+            if (!sheetName) {
+                showPopup('กรุณาเลือกชีตก่อน', 'https://cdn.lordicon.com/nqtddedc.json');
+                return;
+            }
+            try {
+                const response = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${sheetName}/?key=${API_KEY}`);
+                const data = await response.json();
+                if (data.word) {
+                    currentWord = data.word;
+                    wordElement.textContent = currentWord.word;
+                    pinyinElement.textContent = currentWord.pinyin;
+                    displayOptions(currentWord.options);
+                } else {
+                    showPopup('ไม่พบคำศัพท์','https://cdn.lordicon.com/nqtddedc.json');
+                }
+            } catch (error) {
+                console.error('Error fetching random word:', error);
             }
         }
 
-        // เรียกใช้งานฟังก์ชันเมื่อหน้าเว็บโหลดเสร็จ
-        window.onload = onPageLoad;
-    </script>
+        function checkAnswer(selectedOption, correctOption) {
+            if (selectedOption === correctOption) {
+                score ++;
+                showPopup('ถูกต้อง!', 'https://cdn.lordicon.com/lupuorrc.json');
+                updateScore(score);
+                getRandomWord();
+            } else {
+                showPopup('ผิด!', 'https://cdn.lordicon.com/nqtddedc.json');
+                getRandomWord();
+                updateScore(score);
+            }
 
-</body></html>
+            document.getElementById('score').textContent = `คะแนน: ${score}`;
+
+            if (userRowIndex) {
+                updateScore(score);
+            }
+        }
+
+        function updateScore(newScore) {
+            const scoreIframe = document.getElementById('scoreIframe');
+            const url = `${SCRIPT_URL}?row=${userRowIndex}&score=${newScore}`;
+            scoreIframe.src = url;
+        }
+
+        function showPopup(message, iconSrc) {
+            document.getElementById('popupMessage').textContent = message;
+            document.getElementById('popupIcon').src = iconSrc;
+            document.getElementById('popup').style.display = 'block';
+            document.getElementById('popup').classList.add('show');
+        }
+
+        function closePopup() {
+            document.getElementById('popup').classList.remove('show');
+            document.getElementById('popup').style.display = 'none';
+        }
+
+        // Restore session data from localStorage if available
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedUser = localStorage.getItem('currentUser');
+            if (savedUser) {
+                const userData = JSON.parse(savedUser);
+                currentUser = userData.username;
+                score = userData.score;
+                userRowIndex = userData.userRowIndex;
+                document.getElementById('userDisplay').textContent = userData.displayName;
+                document.querySelector('.logout-button').style.display = 'block';
+                document.getElementById('loginContainer').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+                document.getElementById('score').textContent = `คะแนน: ${score}`
+                getSheetNames();
+
+    // ตรวจสอบว่ามีลิ้งค์ในคอลัมน์ E หรือไม่
+    if (profileLink) {
+        document.getElementById("profileImage").src = profileLink;
+    } else {
+        document.getElementById("profileImage").src = 'https://th.bing.com/th/id/OIP.grSGav-be2MB16CTac864wHaHa?w=190&h=190&c=7&r=0&o=5&pid=1.7';
+    }
+    
+            } else {
+                document.getElementById('loginContainer').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+
+</html>
